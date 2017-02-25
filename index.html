@@ -1,451 +1,58 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>ICGI 2016 | JMLR W&amp;CP</title>
+---
+layout: default
+---
 
-	<!-- Stylesheet -->
-	<link rel="stylesheet" type="text/css" href="../css/jmlr.css" />
+{% assign days = site.conference.dates.size %}
+{% assign startmonth = site.conference.dates.first | date: "%B" %}
+{% assign endmonth = site.conference.dates.first | date: "%B" %}
+<h2>Volume {{ site.volume }}: {{ site.conference.name }}, {% if days > 1 %}{% if startmonth == endmonth %}{{ site.conference.dates.first | date: "%-d" }}-{{ site.conference.dates.last | date: "%-d %B %Y" }}{% else %}{{ site.conference.dates.first | date: "%-d %B" }} to {{ site.conference.dates.last | date: "%-d %B %Y" }}{% endif %}{% else %}{{ site.conference.dates.first | date: "%d %B %Y" }}{% endif %}, {{ site.conference.location }}</h2>
+{% if site.github.edit %}
+<p align="right">[<a href="https://github.com/{{ site.github_username }}/{% if site.github.repository %}{{ site.github.repository }}{% else %}{{ site.baseurl }}{% endif %}/edit/{% if site.github.repository contains 'github.io' %}master{% else %}gh-pages{% endif %}/_config.yml">edit</a>]</p>
+  {% endif %}
 
-	<!-- Fixed position navigation -->
-	<!--#include virtual="/proceedings/css-scroll.txt"-->
-
-	<!-- MathJax -->
-	<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({tex2jax: {inlineMath: [['\\(','\\)']]}});
-</script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-</head>
-<body>
-
-<div id="fixed">
-<!--#include virtual="/proceedings/nav-bar.txt"-->
+  
+<p><strong>Editors:
+    {% assign lastone = site.editor | last %}
+    {% for person in site.editor %}
+    {% include listperson.html %}
+    {% endfor %}
+</strong></p>
+<p>[<a href="./bibliography.bib">bib</a>][<a href="./citeproc.yaml">citeproc</a>]</p>
+<div id="sectionnav">
+  {% if site.sections %}
+  <p>Contents:</p>
+  <ul>
+    {% for section in site.sections %}
+    <li><a href="#{{ section.name }}">{{ section.title }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <label for="search-authors">Filter Authors:</label>
+  <input type="search" name="filter-authors" id="search-authors" value />
+  <label for="search-titles">Filter Titles:</label>
+  <input type="search" name="filter-titles" id="search-titles" value />
 </div>
+{% if site.sections %}
+{% for section in site.sections %}
+<h3 id="{{ section.name }}">{{ section.title }}</h3>
+{% assign sorted = (site.posts | sort: 'order') %}
+{% for post in sorted %}
+{% if section.name == post.section %}
+{% include listpaper.html %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}
 
-<div id="content">
-	<h1>JMLR Workshop and Conference Proceedings</h1>
-	<h2>Volume 57: Proceedings of The 13th International Conference on Grammatical Inference</h2>
+{% assign sorted = (site.posts | sort: 'order') %}
+{% for post in sorted %}
+{% unless post.section %} 
+{% include listpaper.html %}
+{% endunless %}
+{% endfor %}
 
-	<p><strong>Editors: 
-	
-		Sicco Verwer,
-	
-		Menno van Zaanen,
-	
-		Rick Smetsers
-    </strong>
-	
-	</p>
+<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-	
-
-	<div id="sectionnav">
-		<p>Contents:</p>
-		<ul>
-		
-			<li><a href="#default">Accepted Papers</a></li>
-		
-		</ul>
-
-		<label for="search-authors">Filter Authors:</label>
-		<input type="search" name="filter-authors" id="search-authors" value />
-		<label for="search-titles">Filter Titles:</label>
-		<input type="search" name="filter-titles" id="search-titles" value />
-	</div>
-
-	
-	<h3 id="default">Accepted Papers</h3>
-
-	<dl>
-		
-			<div class="paper">
-	<p class="title">International Conference on Grammatical Inference 2016: Preface</p>
-	<p class="details">
-	<span class="authors">
-		
-			Sicco Verwer,
-		
-			Menno van Zaanen,
-		
-			Rick Smetsers
-	</span>
-	</p>
-	<p class="links">
-		[<a href="verwer16.html">abs</a>]
-		[<a href="verwer16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Simple K-star Categorial Dependency Grammars and their Inference</p>
-	<p class="details">
-	<span class="authors">
-		
-			Denis Béchet,
-		
-			Annie Foret
-	</span>
-	</p>
-	<p class="links">
-		[<a href="bechet16.html">abs</a>]
-		[<a href="bechet16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Query Learning Automata with Helpful Labels</p>
-	<p class="details">
-	<span class="authors">
-		
-			Adrian-Horia Dediu,
-		
-			Joana M. Matos,
-		
-			Claudio Moraga
-	</span>
-	</p>
-	<p class="links">
-		[<a href="dediu16.html">abs</a>]
-		[<a href="dediu16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Inferring Non-resettable <span>M</span>ealy Machines with n States</p>
-	<p class="details">
-	<span class="authors">
-		
-			Roland Groz,
-		
-			Catherine Oriat,
-		
-			Nicolas Brémond
-	</span>
-	</p>
-	<p class="links">
-		[<a href="groz16.html">abs</a>]
-		[<a href="groz16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Testing Distributional Properties of Context-Free Grammars</p>
-	<p class="details">
-	<span class="authors">
-		
-			Alexander Clark
-	</span>
-	</p>
-	<p class="links">
-		[<a href="clark16.html">abs</a>]
-		[<a href="clark16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Learning Top-Down Tree Transducers with Regular Domain Inspection</p>
-	<p class="details">
-	<span class="authors">
-		
-			Adrien Boiret,
-		
-			Aurélien Lemay,
-		
-			Joachim Niehren
-	</span>
-	</p>
-	<p class="links">
-		[<a href="boiret16.html">abs</a>]
-		[<a href="boiret16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Using Model Theory for Grammatical Inference: a Case Study from Phonology</p>
-	<p class="details">
-	<span class="authors">
-		
-			Kristina Strother-Garcia,
-		
-			Jerey Heinz,
-		
-			Hyun Jin Hwangbo
-	</span>
-	</p>
-	<p class="links">
-		[<a href="strother-garcia16.html">abs</a>]
-		[<a href="strother-garcia16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">The Generalized Smallest Grammar Problem</p>
-	<p class="details">
-	<span class="authors">
-		
-			Payam Siyari,
-		
-			Matthias Gallé
-	</span>
-	</p>
-	<p class="links">
-		[<a href="siyari16.html">abs</a>]
-		[<a href="siyari16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Online Grammar Compression for Frequent Pattern Discovery</p>
-	<p class="details">
-	<span class="authors">
-		
-			Shouhei Fukunaga,
-		
-			Yoshimasa Takabatake,
-		
-			Tomohiro I,
-		
-			Hiroshi Sakamoto
-	</span>
-	</p>
-	<p class="links">
-		[<a href="fukunaga16.html">abs</a>]
-		[<a href="fukunaga16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title"><span>Sp2Learn</span>: A Toolbox for the Spectral Learning of Weighted Automata</p>
-	<p class="details">
-	<span class="authors">
-		
-			Denis Arrivault,
-		
-			Dominique, Benielli,
-		
-			Fran<span>ç</span>ois Denis,
-		
-			Remi Eyraud
-	</span>
-	</p>
-	<p class="links">
-		[<a href="arrivault16.html">abs</a>]
-		[<a href="arrivault16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Learning Deterministic Finite Automata from Infinite Alphabets</p>
-	<p class="details">
-	<span class="authors">
-		
-			Gaetano Pellegrino,
-		
-			Christian Hammerschmidt,
-		
-			Qin Lin,
-		
-			Sicco Verwer
-	</span>
-	</p>
-	<p class="links">
-		[<a href="pellegrino16.html">abs</a>]
-		[<a href="pellegrino16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Results of the Sequence PredIction ChallengE (<span>SPiCe</span>): a Competition on Learning the Next Symbol in a Sequence</p>
-	<p class="details">
-	<span class="authors">
-		
-			Borja Balle,
-		
-			Rémi Eyraud,
-		
-			Franco M. Luque,
-		
-			Ariadna Quattoni,
-		
-			Sicco Verwer
-	</span>
-	</p>
-	<p class="links">
-		[<a href="balle16.html">abs</a>]
-		[<a href="balle16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Predicting Sequential Data with <span>LSTM</span>s Augmented with Strictly 2-Piecewise Input Vectors</p>
-	<p class="details">
-	<span class="authors">
-		
-			Chihiro Shibata,
-		
-			Jeffrey Heinz
-	</span>
-	</p>
-	<p class="links">
-		[<a href="shibata16.html">abs</a>]
-		[<a href="shibata16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">A Spectral Method that Worked Well in the <span>SPiCe</span>’16 Competition</p>
-	<p class="details">
-	<span class="authors">
-		
-			Farhana Ferdousi Liza,
-		
-			Marek Grześ
-	</span>
-	</p>
-	<p class="links">
-		[<a href="liza16.html">abs</a>]
-		[<a href="liza16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Evaluation of Machine Learning Methods on <span>SPiCe</span></p>
-	<p class="details">
-	<span class="authors">
-		
-			Ichinari Sato,
-		
-			Kaizaburo Chubachi,
-		
-			 Diptarama
-	</span>
-	</p>
-	<p class="links">
-		[<a href="sato16.html">abs</a>]
-		[<a href="sato16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Flexible State-Merging for Learning <span>(P)DFA</span>s in Python</p>
-	<p class="details">
-	<span class="authors">
-		
-			Christian Hammerschmidt,
-		
-			Benjamin Loos,
-		
-			Radu State,
-		
-			Thomas Engel
-	</span>
-	</p>
-	<p class="links">
-		[<a href="hammerschmidt16.html">abs</a>]
-		[<a href="hammerschmidt16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Model Selection of Sequence Prediction Algorithms by Compression</p>
-	<p class="details">
-	<span class="authors">
-		
-			Du Xi,
-		
-			Dai Zhuang
-	</span>
-	</p>
-	<p class="links">
-		[<a href="xi16.html">abs</a>]
-		[<a href="xi16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-			<div class="paper">
-	<p class="title">Sequence Prediction Using Neural Network Classiers</p>
-	<p class="details">
-	<span class="authors">
-		
-			Yanpeng Zhao,
-		
-			Shanbo Chu,
-		
-			Yang Zhou,
-		
-			Kewei Tu
-	</span>
-	</p>
-	<p class="links">
-		[<a href="zhao16.html">abs</a>]
-		[<a href="zhao16.pdf">pdf</a>]
-		
-		
-	</p>
-</div>
-
-		
-	</dl>
-	
-
-</div> <!-- content -->
-	<!-- Search Widget -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	<script src="../js/search.js"></script>
-</body>
-</html>
+<!-- Search Widget -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="../js/search.js"></script>
