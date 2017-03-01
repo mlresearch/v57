@@ -22,7 +22,8 @@ editor:
 - given: Rick
   family: Smetsers
 description: |
-  Proceedings of The 13th International Conference on Grammatical Inference on 05-07 October 2016
+  Proceedings of The 13th International Conference on Grammatical Inference
+    Held in Delft, The Netherlands on 05-07 October 2016
 
   Published as Volume 57 by the Proceedings of Machine Learning Research on 16 January 2017.
 
@@ -54,7 +55,7 @@ email: ''
 conference:
   name: International Conference on Grammatical Inference
   url: http://icgi2016.tudelft.nl/
-  location: 
+  location: Delft, The Netherlands
   dates:
   - 2016-10-05
   - 2016-10-06

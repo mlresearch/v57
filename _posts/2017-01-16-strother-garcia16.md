@@ -29,7 +29,7 @@ author:
 - given: Hyun Jin
   family: Hwangbo
 date: 2017-01-16
-address: 
+address: Delft, The Netherlands
 publisher: PMLR
 container-title: Proceedings of The 13th International Conference on Grammatical Inference
 volume: '57'
