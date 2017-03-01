@@ -1,0 +1,66 @@
+---
+booktitle: Proceedings of The 13th International Conference on Grammatical Inference
+volume: 57
+year: '2016'
+start: 2016-10-05
+end: 2016-10-07
+published: 2017-01-16
+shortname: ICGI
+layout: proceedings
+series: Proceedings of Machine Learning Research
+id: icgi16
+month: 0
+abstract: ''
+tex_title: 
+title: Proceedings of Machine Learning Research
+cycles: false
+editor:
+- given: Sicco
+  family: Verwer
+- given: Menno van
+  family: Zaanen
+- given: Rick
+  family: Smetsers
+description: |
+  Proceedings of The 13th International Conference on Grammatical Inference on 05-07 October 2016
+
+  Published as Volume 57 by the Proceedings of Machine Learning Research on 16 January 2017.
+
+  Volume Edited by:
+    Sicco Verwer
+    Menno van Zaanen
+    Rick Smetsers
+
+  Series Editors:
+    Neil D. Lawrence
+    Mark Reid
+date_str: 05--07 Oct
+url: http://proceedings.mlr.press
+baseurl: "/v57"
+twitter_username: mlresearch
+github_username: mlresearch
+markdown: kramdown
+permalink: "/:title.html"
+github:
+  edit: true
+  repository: v57
+display:
+  copy_button:
+    bibtex: true
+    endnote: true
+    apa: true
+  comments: false
+email: ''
+conference:
+  name: International Conference on Grammatical Inference
+  url: http://icgi2016.tudelft.nl/
+  location: 
+  dates:
+  - 2016-10-05
+  - 2016-10-06
+  - 2016-10-07
+analytics:
+  google:
+    tracking_id: UA-92432422-1
+# Site settings
+# Auto generated from v57.bib
