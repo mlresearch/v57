@@ -59,6 +59,7 @@ conference:
   - 2016-10-05
   - 2016-10-06
   - 2016-10-07
+  number: 13
 analytics:
   google:
     tracking_id: UA-92432422-1
