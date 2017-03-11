@@ -10,9 +10,6 @@ layout: proceedings
 series: Proceedings of Machine Learning Research
 id: icgi16
 month: 0
-abstract: ''
-tex_title: 
-title: Proceedings of Machine Learning Research
 cycles: false
 editor:
 - given: Sicco
@@ -21,6 +18,7 @@ editor:
   family: Zaanen
 - given: Rick
   family: Smetsers
+title: Proceedings of Machine Learning Research
 description: |
   Proceedings of The 13th International Conference on Grammatical Inference
     Held in Delft, The Netherlands on 05-07 October 2016
@@ -38,7 +36,7 @@ description: |
 date_str: 05--07 Oct
 url: http://proceedings.mlr.press
 baseurl: "/v57"
-twitter_username: mlresearch
+twitter_username: MLResearchPress
 github_username: mlresearch
 markdown: kramdown
 permalink: "/:title.html"
@@ -50,6 +48,7 @@ display:
     bibtex: true
     endnote: true
     apa: true
+    ris: true
   comments: false
 email: ''
 conference:
@@ -65,3 +64,4 @@ analytics:
     tracking_id: UA-92432422-1
 # Site settings
 # Auto generated from v57.bib
+---
