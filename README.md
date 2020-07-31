@@ -1,1 +1,21 @@
-Proceedings of Machine Learning Research Volume 57
+# PMLR V57
+
+To suggest fixes to this volume please make a pull request containng the changes requested and a justificaiton for the changes.
+
+To edit the details of this conference work [edit the _config.yml](./_config.yml) file and submit a pull request.
+
+To make changes to the individual paper details, edit the associated paper file in the [./_posts](./_posts) subdirectory.
+
+Proceedings of The 13th International Conference on Grammatical Inference
+  Held in Delft, The Netherlands on 05-07 October 2016
+
+Published as Volume 57 by the Proceedings of Machine Learning Research on 16 January 2017.
+
+Volume Edited by:
+  Sicco Verwer
+  Menno van Zaanen
+  Rick Smetsers
+
+Series Editors:
+  Neil D. Lawrence
+  Mark Reid
